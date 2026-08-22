@@ -1,0 +1,24 @@
+<div class="mylogin">
+  <h2>帳號登入：</h2>
+  <div>
+    <label for="">帳號:</label>
+    <input [(ngModel)]="myAccount" type="text">
+  </div>
+  <div>
+    <label for="">密碼:</label>
+    <input [(ngModel)]="myPassword" type="password">
+  </div>
+  <button (click)="mySend()">送出</button>
+</div>
+<div class="myresult">
+  <table border="1">
+  <thead>
+    <th>id</th>
+    <th>pwd</th>
+  </thead>
+  <tbody>
+    <td>{{ sentAccount }}</td>
+    <td>{{ sentPassword }}</td>
+  </tbody>
+  </table>
+</div>
