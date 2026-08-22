@@ -1,9 +1,17 @@
+<!doctype html>
 <h1> {{ title }}</h1>
 <p>{{ role === 'admin' ? '管理員' : '一般使用者'}}</p>
 <div>
-  <input type="text">
+  <label>帳號: </label>
+  <input [(ngModel)]="account" [placeholder]="accountPlaceHolder" type="text">
   <br>
-  <input type="text">
+  <label>密碼: </label>
+  <input [(ngModel)]="password" [placeholder]="passwordPlaceHolder" type="password">
   <br>
-  <button (click)="myTest()">send</button>
+  <button (click)="myTest($event)">send</button>
+</div>
+
+<div>
+  <p>id: {{ account }}
+  <br>pwd: {{ "*".repeat(password.length) }}</p>
 </div>
