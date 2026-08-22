@@ -2,6 +2,7 @@
   <h2>帳號登入：</h2>
   <div>
     <label for="">帳號:</label>
+    <!-- TODO: 用物件去bind -->
     <input [(ngModel)]="myAccount" type="text">
   </div>
   <div>
@@ -9,6 +10,10 @@
     <input [(ngModel)]="myPassword" type="password">
   </div>
   <button (click)="mySend()">送出</button>
+  <!-- TODO -->
+  <button>清除</button>
+  <!-- TODO -->
+  <button>切換</button>
 </div>
 <div class="myresult">
   <table border="1">

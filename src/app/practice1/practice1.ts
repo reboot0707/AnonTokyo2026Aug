@@ -10,11 +10,14 @@ import { FormsModule } from '@angular/forms';
 export class Practice1 {
   myAccount = 'Anon';
   myPassword = 'SoyorinLove';
+  // TODO: 用物件去 bind
   sentAccount = '';
   sentPassword = '';
+  // endTODO
   sendInfoArr: { id: string; pwd: string }[] = [];
 
   mySend() {
+    /* TODO: False Family */
     if (this.myAccount.length < 1 || this.myPassword.length < 1) {
       alert('輸入資訊不完整!');
       console.error('輸入資訊不完整');
