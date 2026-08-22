@@ -1,6 +1,14 @@
-<button>熱門文章</button>
-<button>一般文章</button>
+<p [ngStyle]="{'font-size': fontSize +'px'}">文章</p>
+<p [ngClass]="{'Red': isRed}">關注</p>
 
+<button (click)="myClick()" >test</button>
+<button (click)="myFontClick()" >test</button>
+
+<button (click)="popularArt()">熱門文章</button>
+<button (click)="normalArt()">一般文章</button>
+
+@if(isPopular)
+{
 <div>
   <p>熱門文章列表</p>
 
@@ -15,7 +23,10 @@
     </tr>
   </table>
 </div>
+}
 
+@if(!isPopular)
+{
 <div>
   <p>一般文章列表</p>
 
@@ -30,7 +41,7 @@
     </tr>
   </table>
 </div>
-
+}
 
 <br>
 <button>新增文章</button>
