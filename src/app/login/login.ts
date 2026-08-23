@@ -31,6 +31,8 @@ export class Login implements OnInit {
     console.log('getUserInfo', this.userService.getUserInfo());
     this.account = this.userService.account;
     this.password = this.userService.password;
+    this.inputUser.inputAccount = this.userService.account;
+    this.inputUser.inputPwd = this.userService.password;
   }
 
   submit(para: any) {

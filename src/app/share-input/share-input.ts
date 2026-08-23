@@ -8,10 +8,10 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './share-input.css',
 })
 export class ShareInput {
-  @Input() account = '';
-  @Input() password = '';
-  @Input() accountPlaceHolder = '';
-  @Input() passwordPlaceHolder = '';
+  // @Input() account = '';
+  // @Input() password = '';
+  @Input() accountPlaceHolder = 'ID';
+  @Input() passwordPlaceHolder = 'Password';
 
   @Output() submitEmitter = new EventEmitter();
 
@@ -25,6 +25,10 @@ export class ShareInput {
     inputAccount: '',
     inputPwd: ''
   };
+
+  // SubmitUser = {
+
+  // }
 
   // ngOnInit() {
   //   console.log('ngOnInit');
@@ -61,11 +65,11 @@ export class ShareInput {
   //   console.log('ngOnDestroy');
   // }
 
-  submit() {
+  submit(para: any) {
     this.submitEmitter.emit(
       {
-        account: this.account,
-        password: this.password
+        account: this.inputUser.inputAccount,
+        password: this.inputUser.inputPwd
       }
     );
   }
