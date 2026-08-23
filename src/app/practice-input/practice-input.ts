@@ -18,9 +18,8 @@ export class PracticeInput {
   };
 
   @Output() submitEmitter = new EventEmitter();
-  // @Output()
-  // @Output()
-
+  @Output() clearEmitter = new EventEmitter();
+  @Output() SwitchEmitter = new EventEmitter();
 
   /** 送出 */
   submit_son() {
