@@ -1,0 +1,23 @@
+<div>
+  <p>帳號 :</p>
+  <!-- <input [disabled]="isDisable" [(ngModel)]="user.account"> -->
+  <input [(ngModel)]="user_son.account">
+  @if(!user_son.account)
+  {
+  <!-- <p [ngClass]="{'Red':true}">請輸入帳號</p> -->
+  <p>請輸入帳號</p>
+  }
+  <br>
+  <p>密碼 :</p>
+  <input [(ngModel)]="user_son.password">
+  @if(!user_son.password)
+  {
+  <!-- <p [ngClass]="{'Red':true}">請輸入密碼</p> -->
+  <p>請輸入密碼</p>
+  }
+  <br>
+  <br>
+  <button (click)="submit_son()">送出</button>
+  <button (click)="clear_son()">清除</button>
+  <button (click)="switch_son()">切換</button>
+</div>

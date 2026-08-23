@@ -1,10 +1,11 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { PracticeInput } from "../practice-input/practice-input";
 
 @Component({
   selector: 'app-practice1',
-  imports: [FormsModule, NgClass],
+  imports: [FormsModule, NgClass, PracticeInput],
   templateUrl: './practice1.html',
   styleUrl: './practice1.css',
 })
