@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, output, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -8,44 +8,28 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './practice-input.css',
 })
 export class PracticeInput {
+
+  // 這個沒必要開出去
+  isDisable = false;
+
   @Input() user_son = {
     account: "",
     password: ""
   };
 
-  /** 顯示使用者資料 */
-  @Input() showUser_son = {
-    account: "",
-    password: ""
-  };
+  @Output() submitEmitter = new EventEmitter();
+  // @Output()
+  // @Output()
 
-  /** 顯示使用者資料清單 */
-  @Input() showUserList_son:
-    {
-      account: string,
-      password: string
-    }[] = [];
 
   /** 送出 */
   submit_son() {
-    if (!(this.user_son.account && this.user_son.password)) {
-      alert('必須輸入完整');
-      return;
-    }
-
-    this.showUser_son.account = this.user_son.account;
-    this.showUser_son.password = this.user_son.password;
-
-    if (this.showUserList_son.findIndex(x => x.account === this.showUser_son.account) != -1) {
-      // this.isDuplicate = true
-    } else {
-      this.showUserList_son.push(
-        {
-          account: this.user_son.account,
-          password: this.user_son.password
-        });
-      // this.isDuplicate = false;
-    }
+    this.submitEmitter.emit(
+      {
+        account: this.user_son.account,
+        password: this.user_son.password
+      }
+    );
   }
 
   /** 清除 */
@@ -53,10 +37,10 @@ export class PracticeInput {
     // if (!this.isDisable) {
     //   this.user_son.account = '';
     // }
-    this.user_son.password = '';
-    this.showUser_son.account = '';
-    this.showUser_son.password = '';
-    this.showUserList_son.length = 0;
+    // this.user_son.password = '';
+    // this.showUser_son.account = '';
+    // this.showUser_son.password = '';
+    // this.showUserList_son.length = 0;
     // this.isDuplicate = false;
   }
 

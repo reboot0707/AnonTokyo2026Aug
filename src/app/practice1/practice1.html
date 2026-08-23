@@ -1,6 +1,6 @@
 <h3>{{title}}</h3>
 
-<app-practice-input [user_son]="user" [showUser_son]="showUser" ></app-practice-input>
+<app-practice-input [user_son]="user" (submitEmitter)="submit($event)"></app-practice-input>
 
 <br>
 

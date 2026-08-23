@@ -9,6 +9,8 @@ import { PracticeInput } from "../practice-input/practice-input";
   templateUrl: './practice1.html',
   styleUrl: './practice1.css',
 })
+
+//希望只有共用的功能: 送出, 檢核...
 export class Practice1 {
   /** 標題 */
   title = '新增';
@@ -39,14 +41,14 @@ export class Practice1 {
   isDuplicate = false
 
   /** 送出 */
-  submit() {
+  submit(para: any) {
     if (!(this.user.account && this.user.password)) {
       alert('必須輸入完整');
       return;
     }
 
-    this.showUser.account = this.user.account;
-    this.showUser.password = this.user.password;
+    this.showUser.account = para.account;
+    this.showUser.password = para.password;
 
     if (this.showUserList.findIndex(x => x.account === this.showUser.account) != -1) {
       this.isDuplicate = true
