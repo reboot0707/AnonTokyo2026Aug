@@ -30,13 +30,13 @@ export class ShareInput {
   //   console.log('ngOnInit');
   // }
 
-  ngOnChanges(change: SimpleChanges) {
-    console.log('ngOnChanges', change);
+  // ngOnChanges(change: SimpleChanges) {
+  //   console.log('ngOnChanges', change);
 
-    if (change['inputUser'] && change['inputUser'].currentValue) {
-      console.log('ngOnChanges-inputUser', change['inputUser']);
-    }
-  }
+  //   if (change['inputUser'] && change['inputUser'].currentValue) {
+  //     console.log('ngOnChanges-inputUser', change['inputUser']);
+  //   }
+  // }
 
   // ngDoCheck() {
   //   console.log('ngDoCheck');
