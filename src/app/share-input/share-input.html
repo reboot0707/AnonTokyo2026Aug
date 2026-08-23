@@ -3,10 +3,10 @@
 <div class="container mt-4">
   <div class="card p-3">
     <label>帳號: </label>
-    <input [(ngModel)]="account" [placeholder]="accountPlaceHolder" type="text" class="form-control mb-3">
+    <input [(ngModel)]="inputUser.inputAccount" [placeholder]="accountPlaceHolder" type="text" class="form-control mb-3">
     <br>
     <label>密碼: </label>
-    <input [(ngModel)]="password" [placeholder]="passwordPlaceHolder" type="password" class="form-control mb-3">
+    <input [(ngModel)]="inputUser.inputPwd" [placeholder]="passwordPlaceHolder" type="password" class="form-control mb-3">
     <br>
     <button (click)="submit()" class="btn btn-primary">送出</button>
   </div>

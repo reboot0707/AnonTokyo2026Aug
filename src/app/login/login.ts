@@ -16,8 +16,24 @@ export class Login {
   account = 'Ann'
   password = ''
 
+  inputUser = {
+    inputAccount: 'HookDemo',
+    inputPwd: '123'
+  };
+
   submit(para: any) {
     console.log(typeof (para));
     console.log('父login - ', para);
+  }
+
+  testOnChanges() {
+    //抽換掉整個物件
+    // this.inputUser = {
+    //   inputAccount: '999',
+    //   inputPwd: '444'
+    // }
+    //改同一個物件的屬性 (參考到同樣的記憶體位置)
+    this.inputUser.inputAccount = '999';
+    this.inputUser.inputPwd = '444';
   }
 }
