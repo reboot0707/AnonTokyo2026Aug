@@ -12,7 +12,7 @@ export class Practice1 {
   title = '新增';
 
   /** 使用者資料 */
-  user = {
+  inputUser = {
     account: "",
     password: ""
   };
@@ -23,26 +23,38 @@ export class Practice1 {
     password: ""
   };
 
+  inputUserList: { account: string; password: string }[] = [];
+  // TODO: 有比較好的宣告方式
+
   /** 帳號是否可以輸入 */
   isDisable = false;
 
   /** 送出 */
   submit() {
-    if (!(this.user.account && this.user.password)) {
+    if (!(this.inputUser.account && this.inputUser.password)) {
       alert('必須輸入完整');
       return;
     }
 
-    this.showUser.account = this.user.account;
-    this.showUser.password = this.user.password;
+    // TODO: 用 findIndex 搭配 Lambda 函式, 重複後 IsDuplicated
+    // for (item of this.inputUserList) {
+    //   if (this.inputUser.account === item.account) {
+    //     return;
+    //   }
+    // }
+
+
+    this.showUser.account = this.inputUser.account;
+    this.showUser.password = this.inputUser.password;
+    this.inputUserList.push({ ...this.showUser })
   }
 
   /** 清除 */
   clear() {
     if (!this.isDisable) {
-      this.user.account = '';
+      this.inputUser.account = '';
     }
-    this.user.password = '';
+    this.inputUser.password = '';
     this.showUser.account = '';
     this.showUser.password = '';
   }

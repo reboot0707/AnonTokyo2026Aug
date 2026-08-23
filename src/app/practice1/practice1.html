@@ -1,10 +1,10 @@
 <h3>{{title}}</h3>
 <div>
   <p>帳號 :</p>
-  <input [disabled]="isDisable" [(ngModel)]="user.account">
+  <input [disabled]="isDisable" [(ngModel)]="inputUser.account">
   <br>
   <p>密碼 :</p>
-  <input [(ngModel)]="user.password">
+  <input [(ngModel)]="inputUser.password">
   <br>
   <br>
   <button (click)="submit()">送出</button>
@@ -19,8 +19,15 @@
     <th>帳號</th>
     <th>密碼</th>
   </tr>
-  <tr>
+  <!-- <tr>
     <td>{{showUser.account}}</td>
     <td>{{showUser.password}}</td>
-  </tr>
+  </tr> -->
+  @for (item of inputUserList;track $index)
+  {
+    <tr>
+      <td>{{item.account}}</td>
+      <td>{{item.password}}</td>
+    </tr>
+  }
 </table>
