@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Article } from './article/article';
-import { ArticleItem } from '../interfaces/article';
+import { ArticleData } from '../interfaces/article-data';
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +21,10 @@ export class UserService {
   }
 
   getArticle() {
-    return this.httpclient.get<ArticleItem[]>('https://localhost:7246/Article');
+    return this.httpclient.get<ArticleData[]>('https://localhost:7246/Article');
+  }
+
+  postArticle(para: ArticleData) {
+    return this.httpclient.post<ArticleData[]>('https://localhost:7246/Article', para);
   }
 }

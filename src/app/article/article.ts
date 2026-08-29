@@ -1,7 +1,7 @@
 import { NgClass, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
 import { UserService } from '../user-service';
-import { ArticleItem } from '../../interfaces/article';
+import { ArticleData } from '../../interfaces/article-data';
 
 @Component({
   selector: 'app-article',
@@ -13,7 +13,7 @@ export class Article {
   fontSize = 10;
   isRed = true;
   isPopular = true;
-  popularArticleList: ArticleItem[] = [];
+  popularArticleList: ArticleData[] = [];
 
   constructor(private userService: UserService) {
 
@@ -22,6 +22,11 @@ export class Article {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
+    //this.userService.getArticle().subscribe((data) => {
+    //  console.log(data);
+    //  this.popularArticleList = data;
+    //})
+
     this.userService.getArticle().subscribe((data) => {
       console.log(data);
       this.popularArticleList = data;
@@ -133,6 +138,14 @@ export class Article {
   }
 
   addArticle() {
-    this.popularArticleList.push({ title: 'a', content: 'a' });
+    let payload = {
+      "title": "啊農",
+      "content": "東京"
+    }
+
+    this.userService.postArticle(payload).subscribe((data) => {
+      console.log(data);
+      this.popularArticleList.push(data[data.length - 1]);
+    })
   }
 }
