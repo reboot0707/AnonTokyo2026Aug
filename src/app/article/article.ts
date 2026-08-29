@@ -2,10 +2,11 @@ import { DatePipe, NgClass, NgStyle, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { UserService } from '../user-service';
 import { ArticleData } from '../../interfaces/article-data';
+import { ArticleContentPipe } from '../pipes/article-content-pipe';
 
 @Component({
   selector: 'app-article',
-  imports: [NgClass, NgStyle, UpperCasePipe, DatePipe],
+  imports: [NgClass, NgStyle, UpperCasePipe, DatePipe, ArticleContentPipe],
   templateUrl: './article.html',
   styleUrl: './article.css',
 })
@@ -140,8 +141,8 @@ export class Article {
 
   addArticle() {
     let payload = {
-      "title": "啊農",
-      "content": "東京"
+      "title": "青木瓜四物飲",
+      "content": "陽菜凜"
     }
 
     this.userService.postArticle(payload).subscribe((data) => {
