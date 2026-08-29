@@ -1,11 +1,11 @@
-import { NgClass, NgStyle } from '@angular/common';
+import { DatePipe, NgClass, NgStyle, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { UserService } from '../user-service';
 import { ArticleData } from '../../interfaces/article-data';
 
 @Component({
   selector: 'app-article',
-  imports: [NgClass, NgStyle],
+  imports: [NgClass, NgStyle, UpperCasePipe, DatePipe],
   templateUrl: './article.html',
   styleUrl: './article.css',
 })
@@ -14,6 +14,7 @@ export class Article {
   isRed = true;
   isPopular = true;
   popularArticleList: ArticleData[] = [];
+  nowDate = new Date();
 
   constructor(private userService: UserService) {
 

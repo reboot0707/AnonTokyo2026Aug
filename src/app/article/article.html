@@ -1,3 +1,10 @@
+<p>{{'article' | uppercase }}</p>
+<p>{{ nowDate}}</p>
+<p>{{ nowDate | date }}</p> <!-- ts檔中 新增nowDate = new Date() -->
+<p>{{ nowDate | date : 'shortDate' }}</p>
+<p>{{ nowDate | date : 'fullDate' }}</p>
+
+
 <p [ngStyle]="{'font-size': fontSize +'px'}">文章</p>
 <p [ngClass]="{'Red': isRed}">關注</p>
 
