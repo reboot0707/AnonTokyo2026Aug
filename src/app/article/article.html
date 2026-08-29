@@ -28,7 +28,7 @@
     @for(item of popularArticleList;track $index)
     {
       <tr>
-        <td>{{item.title}}</td>
+        <td>{{item.title | articleContent: 'ooo'}}</td>
         <td>{{item.content | articleContent}}</td>
       </tr>
     }

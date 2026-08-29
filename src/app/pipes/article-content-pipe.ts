@@ -5,8 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ArticleContentPipe implements PipeTransform {
 
-  transform(value: string): string {
-    return value.substring(0, 2) + '...';
+  transform(value: string, myformat: string = '...'): string {
+    return value.substring(0, 2) + myformat;
   }
 
 }
