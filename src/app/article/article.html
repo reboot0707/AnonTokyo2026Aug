@@ -11,15 +11,16 @@
 <!-- <button (click)="myClick()" >test</button>
 <button (click)="myFontClick()" >test</button> -->
 
-<button (click)="popularArt()">熱門文章</button>
-<button (click)="normalArt()">一般文章</button>
+<button class="btn btn-secondary" (click)="popularArt()">熱門文章</button>
+<button class="btn btn-secondary" (click)="normalArt()">一般文章</button>
+
 
 @if(isPopular)
 {
 <div>
   <p>熱門文章列表</p>
 
-  <table border="1">
+  <table class="table">
     <tr>
       <th>標題</th>
       <th>內容</th>
@@ -40,7 +41,7 @@
 <div>
   <p>一般文章列表</p>
 
-  <table border="1">
+  <table class="table">
     <tr>
       <th>標題</th>
       <th>內容</th>
@@ -52,6 +53,7 @@
   </table>
 </div>
 }
+
 
 <br>
 <button (click)="addArticle()">新增文章</button>
