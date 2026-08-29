@@ -12,7 +12,6 @@ import { InputVerify } from '../input-verify';
 
 export class Practice082901 {
   inputtext = "";
-  isOK = false;
 
   constructor(private inputVerify: InputVerify) {
   }
@@ -20,7 +19,9 @@ export class Practice082901 {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
+  }
 
-    this.isOK = this.inputVerify.verifyThisString(this.inputtext, 5);
+  get isOK(): boolean {
+    return this.inputVerify.verifyThisString(this.inputtext, 5);
   }
 }
