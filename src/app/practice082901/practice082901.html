@@ -1,0 +1,6 @@
+<label>請輸入文字:</label>
+<input type="text" [(ngModel)]="inputtext">
+@if(!isOK) {
+  <p [ngClass]="{'Red':true}">不要輸入超過5個字！</p>
+}
+
