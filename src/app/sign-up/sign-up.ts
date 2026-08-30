@@ -16,9 +16,15 @@ export class SignUp {
       tall: new FormControl(4)
     }),
     address: new FormArray([
-      new FormControl('5')
+      new FormControl('5'),
+      new FormControl('Anon'),
+      new FormControl('Tokyo')
     ])
   })
+
+  getAddress() {
+    return (this.form.get('address') as FormArray).controls
+  }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.

@@ -15,10 +15,12 @@
   <br>
 
   <span>地址</span><button>新增地址</button>
-    <div>
+    <div formArrayName="address">
+@for (addr of getAddress(); track $index) {
       <div>
-        <input>
+        <input [formControlName]="$index">
       </div>
+}
   </div>
 </form>
 
