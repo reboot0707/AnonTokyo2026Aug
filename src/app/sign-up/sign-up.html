@@ -1,6 +1,22 @@
 <form [formGroup]="form">
   <p>帳號 :</p>
   <input formControlName="account">
+  <!-- @if (form.get('account')?.touched && form.get('account')?.invalid){
+    <p><span class="Red">驗證錯誤!</span></p>
+  } -->
+@if (form.get('account')?.touched && form.get('account')?.getError('required')){
+    <p><span class="Red">此欄位必填!</span></p>
+}
+
+@if (form.get('account')?.touched && form.get('account')?.getError('minlength')){
+    <p><span class="Red">帳號長度需要大於 4</span></p>
+}
+
+  <p>isvalid: {{ form.get('account')?.valid  }}</p>
+  <p>istouched: {{ form.get('account')?.touched }}</p>
+  <p>isdirty: {{ form.get('account')?.dirty }}</p>
+  <p>error: {{ form.get('account')?.errors | json }}</p>
+
   <p>密碼 :</p>
   <input formControlName="password">
 
