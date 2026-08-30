@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-sign-up',
@@ -29,11 +30,32 @@ export class SignUp {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    console.log(this.form);
+    //console.log(this.form);
+    //this.form.get('account')?.setValue('Anon Tokyo')
+
+    this.form.patchValue({
+      account: 'Anon Tokyo',
+      password: 'SoyorinLove'
+    })
+
+    this.form.get('account')?.valueChanges
+      .pipe(debounceTime(500))  //rxjs
+      .subscribe((input) => {
+        console.log(`value changed to: ${input}`);
+      })
   }
 
   submit() {
     console.log(this.form);
     console.log(this.form.value);
+  }
+
+  clear() {
+    this.form.reset({
+      account: '',
+      password: '',
+      address: ['']
+    });
+    console.log(this.form);
   }
 }
