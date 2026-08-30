@@ -19,6 +19,17 @@
 
   <p>密碼 :</p>
   <input formControlName="password">
+@if (form.get('password')?.touched && form.get('password')?.getError('required')){
+    <p><span class="Red">此欄位必填!</span></p>
+}
+
+@if (form.get('password')?.touched && form.get('password')?.getError('minlength')){
+    <p><span class="Red">密碼長度需要大於 4</span></p>
+}
+  <p>isvalid: {{ form.get('password')?.valid  }}</p>
+  <p>istouched: {{ form.get('password')?.touched }}</p>
+  <p>isdirty: {{ form.get('password')?.dirty }}</p>
+  <p>error: {{ form.get('password')?.errors | json }}</p>
 
   <div formGroupName="info">
     <p>個人資訊 :</p>
@@ -30,7 +41,7 @@
 
   <br>
 
-  <span>地址</span><button>新增地址</button>
+  <span>地址</span><button (click)="addAddress()">新增地址</button>
     <div formArrayName="address">
 @for (addr of getAddress(); track $index) {
       <div>

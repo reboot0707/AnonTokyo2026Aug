@@ -51,11 +51,17 @@ export class SignUp {
     // console.log(this.form);
     // console.log(this.form.value);
     if (this.form.invalid) {
+      console.log(this.form.invalid);
+      console.log(this.form.errors);
       alert('check is required!');
-      console.log(this.form.get('account')?.errors);
       return;
     }
     console.log('data is sent to api');
+    console.log(this.form.value);
+  }
+
+  addAddress() {
+    (this.form.get('address') as FormArray).push(new FormControl(666))
   }
 
   clear() {
