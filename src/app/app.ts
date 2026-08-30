@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { Login } from "./login/login";
 import { Practice1 } from './practice1/practice1';
 import { Article } from './article/article';
+import { Practice082901 } from "./practice082901/practice082901";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Login, Practice1, Article],
+  imports: [RouterOutlet, Login, Practice1, Article, Practice082901],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
