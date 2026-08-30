@@ -31,4 +31,9 @@ export class SignUp {
     //Add 'implements OnInit' to the class.
     console.log(this.form);
   }
+
+  submit() {
+    console.log(this.form);
+    console.log(this.form.value);
+  }
 }
