@@ -1,0 +1,40 @@
+<h3>{{title}}</h3>
+<form [formGroup]="userForm">
+  <p>帳號 :</p>
+  <input formControlName="account">
+  <br>
+  <p>密碼 :</p>
+  <input formControlName="password">
+  <br>
+  <br>
+  <button (click)="submit()">送出</button>
+  <button (click)="clear()">清除</button>
+  <button (click)="switch()">切換</button>
+</form>
+
+<br>
+
+<table>
+  <tr>
+    <th>帳號</th>
+    <th>密碼</th>
+  </tr>
+  <tr>
+    <td>{{showUser.account}}</td>
+    <td>{{showUser.password}}</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>帳號清單</th>
+    <th>密碼清單</th>
+  </tr>
+  @for ( user of showUserList ; track $index)
+  {
+  <tr>
+    <td>{{user.account}}</td>
+    <td>{{user.password}}</td>
+  </tr>
+  }
+</table>
