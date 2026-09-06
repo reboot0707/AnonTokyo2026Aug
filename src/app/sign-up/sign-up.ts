@@ -3,6 +3,7 @@ import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } fr
 import { debounceTime } from 'rxjs';
 import { Article } from "../article/article";
 import { JsonPipe } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,6 +12,9 @@ import { JsonPipe } from '@angular/common';
   styleUrl: './sign-up.css',
 })
 export class SignUp {
+
+  constructor(private activatedRoute: ActivatedRoute) { }
+
   form = new FormGroup({
     account: new FormControl('1', [Validators.required, Validators.minLength(4)]),
     password: new FormControl('2', [Validators.required, Validators.minLength(8)]),
@@ -30,6 +34,17 @@ export class SignUp {
   }
 
   ngOnInit(): void {
+    console.log('snapshot-param', this.activatedRoute.snapshot.params['id']);
+    console.log('snapshot-param', this.activatedRoute.snapshot.paramMap.get('id'));
+
+    // this.activatedRoute.params.subscribe((params) => {
+    //   console.log('subscript-params: ', params['id']);
+    // })
+
+    // this.activatedRoute.paramMap.subscribe((map) => {
+    //   console.log('subscript-paramsMap: ', map.get('id'));
+    // })
+
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     //console.log(this.form);
