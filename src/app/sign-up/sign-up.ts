@@ -34,8 +34,20 @@ export class SignUp {
   }
 
   ngOnInit(): void {
-    console.log('snapshot-param', this.activatedRoute.snapshot.params['id']);
-    console.log('snapshot-param', this.activatedRoute.snapshot.paramMap.get('id'));
+
+    console.log('snapshot-param: ', this.activatedRoute.snapshot.queryParams);
+    console.log('snapshot-param: ', this.activatedRoute.snapshot.queryParamMap.get('account'));
+
+    this.activatedRoute.queryParams.subscribe((params) => {
+      console.log('snapshot-param: ', params);
+    })
+
+    this.activatedRoute.queryParamMap.subscribe((map) => {
+      console.log('snapshot-param: ', map.get('account'));
+    })
+
+    // console.log('snapshot-param', this.activatedRoute.snapshot.params['id']);
+    // console.log('snapshot-param', this.activatedRoute.snapshot.paramMap.get('id'));
 
     // this.activatedRoute.params.subscribe((params) => {
     //   console.log('subscript-params: ', params['id']);

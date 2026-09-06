@@ -2,12 +2,13 @@
 <h2 class="h1 my-2">Seisuin Complex</h2>
 <a routerLink="login">登入</a> &nbsp;
 <a routerLink="signup">註冊</a> &nbsp;
-<a routerLink="signup/123">註冊帶參數</a>
+<a routerLink="signup/123">註冊帶參數</a> &nbsp;
+<a routerLink="signup" [queryParams]="{'account': 'boy', 'password': '123'}">註冊帶參數</a>
 <br>
 <button class="btn btn-primary" (click)="goToLogin()">登入</button> &nbsp;
 <button class="btn btn-secondary" (click)="goToSignUp()">註冊</button> &nbsp;
-<button class="btn btn-secondary" (click)="goToSignUp()">註冊</button> &nbsp;
-<button class="btn btn-secondary" (click)="goToSignUpWithPara()">註冊帶參數</button>
+<button class="btn btn-secondary" (click)="goToSignUpWithPara()">註冊帶參數</button> &nbsp;
+<button class="btn btn-secondary" (click)="goToSignUpWithQueryString()">註冊帶Query參數</button>
 </header>
 
 <router-outlet></router-outlet>

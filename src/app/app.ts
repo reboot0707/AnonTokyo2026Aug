@@ -27,4 +27,12 @@ export class App {
     this.router.navigate(['signup/456'])
   }
 
+  goToSignUpWithQueryString() {
+    this.router.navigate(['signup'], {
+      queryParams: {
+        'account': 'girl',
+        'password': '456'
+      }
+    });
+  }
 }
