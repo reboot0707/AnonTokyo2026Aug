@@ -23,4 +23,8 @@ export class App {
     this.router.navigate(['signup']);
   }
 
+  goToSignUpWithPara() {
+    this.router.navigate(['signup/456'])
+  }
+
 }
