@@ -1,5 +1,14 @@
-<app-sign-up></app-sign-up>
+<header class="container">
+<h2>Seisuin Complex</h2>
+<a routerLink="login">登入</a> &nbsp;
+<a routerLink="signup">註冊</a>
+<br>
+<button class="btn btn-primary" (click)="goToLogin()">登入</button>
+<button class="btn btn-secondary" (click)="goToSignUp()">註冊</button>
+</header>
 
-<div class="container">
+<router-outlet></router-outlet>
+
+<footer class="container">
 <p>Copyright - Anon Tokyo, 2026</p>
-</div>
+</footer>

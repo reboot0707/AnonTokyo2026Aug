@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink, Router } from '@angular/router';
 import { Login } from "./login/login";
 import { Practice1 } from './practice1/practice1';
 import { Article } from './article/article';
@@ -8,10 +8,19 @@ import { SignUp } from "./sign-up/sign-up";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Login, Practice1, Article, Practice082901, SignUp],
+  imports: [RouterOutlet, Login, Practice1, Article, Practice082901, SignUp, RouterLink],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('AnonTokyo2026Aug');
+  constructor(private router: Router) { }
+
+  goToLogin() {
+    this.router.navigate(['login']);
+  }
+
+  goToSignUp() {
+    this.router.navigate(['signup']);
+  }
+
 }
