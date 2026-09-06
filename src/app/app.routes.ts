@@ -5,9 +5,26 @@ export const routes: Routes = [
     path: '',
     loadComponent: () => import('./login/login').then(m => m.Login)
   },
+  // {
+  //   path: 'login',
+  //   loadComponent: () => import('./login/login').then(m => m.Login)
+  // },
   {
     path: 'login',
-    loadComponent: () => import('./login/login').then(m => m.Login)
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./login/login').then(m => m.Login)
+      },
+      {
+        path: 'aa',
+        loadComponent: () => import('./login/login').then(m => m.Login)
+      },
+      {
+        path: 'test',
+        loadComponent: () => import('./sign-up/sign-up').then(m => m.SignUp)
+      },
+    ]
   },
   {
     path: 'signup',
