@@ -1,6 +1,9 @@
+<div class="container">
+
 <form [formGroup]="form">
-  <p>帳號 :</p>
-  <input formControlName="account">
+  <div class="mt-2">
+  <label class="form-label" >帳號 :</label>
+  <input class="form-control" formControlName="account">
   <!-- @if (form.get('account')?.touched && form.get('account')?.invalid){
     <p><span class="Red">驗證錯誤!</span></p>
   } -->
@@ -11,6 +14,7 @@
 @if (form.get('account')?.touched && form.get('account')?.getError('minlength')){
     <p><span class="Red">帳號長度需要大於 4</span></p>
 }
+  </div>
 
   <p>isvalid: {{ form.get('account')?.valid  }}</p>
   <p>istouched: {{ form.get('account')?.touched }}</p>
@@ -18,7 +22,7 @@
   <p>error: {{ form.get('account')?.errors | json }}</p>
 
   <p>密碼 :</p>
-  <input formControlName="password">
+  <input class="form-control" formControlName="password">
 @if (form.get('password')?.touched && form.get('password')?.getError('required')){
     <p><span class="Red">此欄位必填!</span></p>
 }
@@ -34,18 +38,18 @@
   <div formGroupName="info">
     <p>個人資訊 :</p>
     <p>年齡</p>
-    <input formControlName="age">
+    <input class="form-control" formControlName="age">
     <p>身高</p>
-    <input formControlName="tall">
+    <input class="form-control" formControlName="tall">
   </div>
 
   <br>
 
-  <span>地址</span><button (click)="addAddress()">新增地址</button>
+  <span>地址</span><button class="btn btn-secondary mx-2" (click)="addAddress()">新增地址</button>
     <div formArrayName="address">
 @for (addr of getAddress(); track $index) {
       <div>
-        <input [formControlName]="$index">
+        <input class="form-control" [formControlName]="$index">
       </div>
 }
   </div>
@@ -53,5 +57,7 @@
 
 <br>
 
-<button (click)="submit()">送出</button>
-<button (click)="clear()">清除</button>
+<button class="btn btn-secondary mx-2" (click)="submit()">送出</button>
+<button class="btn btn-secondary mx-2" (click)="clear()">清除</button>
+
+</div>
